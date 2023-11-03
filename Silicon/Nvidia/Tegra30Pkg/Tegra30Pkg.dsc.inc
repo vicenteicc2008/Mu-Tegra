@@ -15,10 +15,7 @@
   USE_TEGRA_TIMER    = 1
 
 [PcdsFixedAtBuild.common]
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerSecIntrNum|0
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerIntrNum|1
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerVirtIntrNum|41
-  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerHypIntrNum|42
+  gNvidiaPkgTokenSpaceGuid.PcdTegraTimerLegacyIntrNum|13
 
   gArmTokenSpaceGuid.PcdGicDistributorBase|0x50041000
   gArmTokenSpaceGuid.PcdGicRedistributorsBase|0x50040100
@@ -44,7 +41,7 @@
 [LibraryClasses.common]
   PlatformPeiLib|Tegra30Pkg/Library/PlatformPeiLib/PlatformPeiLib.inf
   PlatformPrePiLib|Tegra30Pkg/Library/PlatformPrePiLib/PlatformPrePiLib.inf
-  TegraClockLib|Tegra30Pkg/Library/TegraClockLib/TegraClockLib.inf
+  TegraClockLib|Tegra30Pkg/GPLLibrary/TegraClockLib/TegraClockLib.inf
 
 [Components.common]
   Tegra30Pkg/Drivers/SmBiosTableDxe/SmBiosTableDxe.inf

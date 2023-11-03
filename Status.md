@@ -9,8 +9,6 @@
 
 ## IdeaPad Yoga 11
 
-**NOTE: Before BDS Entry, DXE Core Complains about Signature.**
-
 <img align="right" src="https://github.com/Robotix22/Mu-Tegra/blob/main/Pictures/Lenovo-IdeaPad-Yoga-11.png" width="500" alt="Preview">
 
 **SoC: Tegra 3** <br />
@@ -30,7 +28,7 @@
 |Buttons||❌|
 |USB||❌|
 |Mouse Pad||❌|
-|Keyboard||❌|
+|Keyboard|Key Read is still a bit broken|⚠️|
 |SD Card||❌|
 |ACPI||❌|
 |UART||❌|
@@ -87,12 +85,10 @@
 
 ## Surface RT
 
-**NOTE: Stuck in Enabling MMU.**
-
 <img align="right" src="https://github.com/Robotix22/Mu-Tegra/blob/main/Pictures/Microsoft-Surface-RT.png" width="480" alt="Preview">
 
 **SoC: Tegra 3** <br />
-**Codename: sRT** <br />
+**Codename: oemk** <br />
 **Maintainer: None** <br />
 **Contibuters: [Robotix22](https://github.com/Robotix22/)** <br />
 **Tester: [wmjb](https://github.com/wmjb/)**
@@ -103,7 +99,7 @@
 |:------|:----------|:---:|
 |Display||✅|
 |Touchscreen||❌|
-|Clocks||❌|
+|Clocks||✅|
 |eMMC||❌|
 |Buttons||❌|
 |USB||❌|

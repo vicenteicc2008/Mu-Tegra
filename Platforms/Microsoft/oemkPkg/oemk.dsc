@@ -15,15 +15,15 @@
 #
 ################################################################################
 [Defines]
-  PLATFORM_NAME                  = Venus
-  PLATFORM_GUID                  = f9287658-dc58-4ee4-9606-9a3cfe9a0105
+  PLATFORM_NAME                  = oemk
+  PLATFORM_GUID                  = b4dcb236-a5f5-411d-91f4-e446d4a8d2e8
   PLATFORM_VERSION               = 0.1
   DSC_SPECIFICATION              = 0x00010005
-  OUTPUT_DIRECTORY               = Build/VenusPkg
+  OUTPUT_DIRECTORY               = Build/oemkPkg
   SUPPORTED_ARCHITECTURES        = ARM
   BUILD_TARGETS                  = DEBUG|RELEASE
   SKUID_IDENTIFIER               = DEFAULT
-  FLASH_DEFINITION               = VenusPkg/Venus.fdf
+  FLASH_DEFINITION               = oemkPkg/oemk.fdf
 
   # 0 = T30
   # 1 = T30L
@@ -32,42 +32,37 @@
 
   # 0 = DDR3-L
   # 1 = LPDDR2-1066
-  RAM_MODEL                      = 0
+  RAM_MODEL                      = 1
 
 [BuildOptions.common]
   *_*_*_CC_FLAGS = -DSOC_TYPE=$(SOC_TYPE) -DRAM_MODEL=$(RAM_MODEL)
 
 [LibraryClasses.common]
-  PlatformMemoryMapLib|VenusPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
-  TegraKeyboardDeviceImplLib|VenusPkg/GPLLibrary/TegraKeyboardDeviceImplLib/TegraKeyboardDeviceImplLib.inf
+  PlatformMemoryMapLib|oemkPkg/Library/PlatformMemoryMapLib/PlatformMemoryMapLib.inf
 
 [PcdsFixedAtBuild.common]
   # Platform-specific
-  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000              # Starting address
-  gArmTokenSpaceGuid.PcdSystemMemorySize|0x80000000              # 2GB Size
+  gArmTokenSpaceGuid.PcdSystemMemoryBase|0x80000000                  # Starting address
+  gArmTokenSpaceGuid.PcdSystemMemorySize|0x80000000                  # 2GB Size
 
-  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"Robotix22"  # Device Maintainer
+  gEfiMdeModulePkgTokenSpaceGuid.PcdFirmwareVendor|L"No Maintainer"  # Device Maintainer
 
-  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x84848000
+  gArmTokenSpaceGuid.PcdCpuVectorBaseAddress|0x88740000
 
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x80308000
-  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000           # 256K stack
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackBase|0x84200000
+  gEmbeddedTokenSpaceGuid.PcdPrePiStackSize|0x00040000               # 256K stack
 
   # SmBios
-  gNvidiaPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Lenovo TM"
-  gNvidiaPkgTokenSpaceGuid.PcdSmbiosSystemModel|"IdeaPad Yoga 11"
-  gNvidiaPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"VenusTZ"
-  gNvidiaPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"IdeaPad_Yoga_11_VenusTZ"
-  gNvidiaPkgTokenSpaceGuid.PcdSmbiosBoardModel|"IdeaPad Yoga 11"
+  gNvidiaPkgTokenSpaceGuid.PcdSmbiosSystemVendor|"Microsoft Corporation"
+  gNvidiaPkgTokenSpaceGuid.PcdSmbiosSystemModel|"Surface RT"
+  gNvidiaPkgTokenSpaceGuid.PcdSmbiosSystemRetailModel|"oemk"
+  gNvidiaPkgTokenSpaceGuid.PcdSmbiosSystemRetailSku|"Surface_RT_oemk"
+  gNvidiaPkgTokenSpaceGuid.PcdSmbiosBoardModel|"Surface RT"
 
   # Simple FrameBuffer
   gNvidiaPkgTokenSpaceGuid.PcdMipiFrameBufferWidth|1366
   gNvidiaPkgTokenSpaceGuid.PcdMipiFrameBufferHeight|768
   gNvidiaPkgTokenSpaceGuid.PcdMipiFrameBufferPixelBpp|32
-
-[Components.common]
-  NvidiaPkg/Drivers/TegraKeyboardDxe/TegraKeyboardDxe.inf
-  NvidiaPkg/Drivers/GenericTegraKeyboardDeviceDxe/GenericTegraKeyboardDeviceDxe.inf
 
 [PcdsDynamicDefault.common]
   gEfiMdeModulePkgTokenSpaceGuid.PcdVideoHorizontalResolution|1366
